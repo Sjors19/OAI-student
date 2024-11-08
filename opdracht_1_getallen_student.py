@@ -25,9 +25,9 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
 """
 
 # TODO: Vul hier je naam, klas en studentnummer in.
-naam = ""
-klas = ""
-studentnummer = -1
+naam = "Sjors Jansen"
+klas = "V1J"
+studentnummer = 1880483
 
 """
 1.  Pseudocode ceil
@@ -36,7 +36,14 @@ studentnummer = -1
     Schrijf je pseudocode keywords met alleen hoofdletters (ALS, VOOR, etc...).
     
 """
-#   TODO: [geef hier je antwoord]
+    # ONTVANG real
+    # BEREKEN int_real = int(real)
+    # ALS real == int_real DAN
+    #   GEEF real TERUG
+    # ANDERS ALS real < 0 DAN
+    #   GEEF int_real TERUG
+    # ANDERS
+    #   GEEF int_real + 1 TERUG
 
 """
 2. Implementatie ceil
@@ -53,7 +60,13 @@ def ceil(real):
     Returns:
         int: Het kleinste gehele getal (int), groter dan of gelijk aan het gegeven reeele getal (float).
     """
-    return 0
+    int_real = int(real)
+    if real == int(real):
+        return int_real
+    elif real < 0:
+        return int_real
+    else:
+        return (int_real + 1)
 
 
 """
@@ -71,7 +84,8 @@ def is_even(n):
     Returns:
         bool: True als even, False als oneven.
     """
-    return False
+    val = n % 2 == 0;
+    return val
 
 
 """
@@ -89,7 +103,8 @@ def is_odd(n):
     Returns:
         bool: True als oneven, False als even.
     """
-    return False
+    val = n % 2 != 0
+    return val
 
 
 """
@@ -107,8 +122,15 @@ def nround(real):
     Returns:
         int: Het gehele getal (int) dat het dichtst bij het gegeven reeele getal (float) zit.
     """
-
-    return 0
+    over = real % 1
+    roundNr = int(real)
+    if real >= 0:
+        if over > 0.5:
+            roundNr += 1
+    else:
+        if over < 0.5:
+            roundNr += 1
+    return roundNr
 
 
 """
@@ -116,6 +138,11 @@ def nround(real):
     Implementeer onderstaande functie om de binaire representatie van een decimaal getal te berekenen.
 
 """
+    #   ONTVANG n
+    #   ZOLANG over > 0
+    #       BEREKEN over = n / 2
+    #       BEREKEN rest = n % 2
+    #       BEREKEN n = over
 
 def dec2bin(n):
     """

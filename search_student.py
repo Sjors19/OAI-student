@@ -26,6 +26,9 @@ def linear_search(lst, target):
     Returns:
         bool: Of het gezochte element voorkomt in de lijst.
     """
+    for i in lst:
+        if i == target:
+            return True
     return False
 
 
@@ -41,6 +44,11 @@ def linear_search_index(lst, target):
         int: De index waar het element in de lijst staat, of -1 als het element niet in de lijst voorkomt.
     """
     index = 0
+    for i in lst:
+        if i != target:
+            index += 1
+        else:
+            return index
     return -1
 
 
@@ -57,14 +65,17 @@ def binary_search(lst, target):
     """
     # Stap 1.
     mini = 0
-
+    maxi = len(lst) -1
+    index = mini + maxi //2
+    e = lst[index]
     # Stap 6. (!)
-    while False:    # hoelang ga je door met zoeken?
-        # Stap 2.
-        # Stap 3.
-        return True
-        # Stap 4.
-        # Stap 5.
+    while mini <= maxi:    # hoelang ga je door met zoeken?
+        if e == target:
+            return True
+        elif e < target:
+            mini = index + 1
+        elif e > target:
+            maxi = index - 1
 
     return False
 
