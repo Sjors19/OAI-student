@@ -84,7 +84,7 @@ def is_even(n):
     Returns:
         bool: True als even, False als oneven.
     """
-    val = n % 2 == 0;
+    val = n % 2 == 0
     return val
 
 
@@ -122,16 +122,21 @@ def nround(real):
     Returns:
         int: Het gehele getal (int) dat het dichtst bij het gegeven reeele getal (float) zit.
     """
-    over = real % 1
-    roundNr = int(real)
-    if real >= 0:
-        if over > 0.5:
-            roundNr += 1
-    else:
-        if over < 0.5:
-            roundNr += 1
-    return roundNr
+    '''
+        krijg real
+        bereken over
+        bepaal of getal positief of negatief is
+        als positief en over > .5 retourneer int +1
+        als negatief en over > .5 retourneer int -1
+    '''
 
+    over = abs(real) % 1
+    if real > 0 and over >= .5:
+        return int(real) + 1
+    elif real < 0 and over > .5:
+        return int(real) -1
+    else:
+        return int(real)
 
 """
 6. Implementatie dec2bin rij
@@ -167,7 +172,18 @@ def dec2bin(n):
         >> dec2bin(16)
         (1, 0, 0, 0, 0)
     """
-    return (0,)
+    over = n
+    binLst = []
+    if n == 0:
+        return (0,)
+    else:
+        while over > 0:
+            over = n // 2
+            rest = n % 2
+            n = over
+            binLst.append(rest)
+        binLst.reverse()
+        return tuple(binLst)
 
 
 """
@@ -195,7 +211,10 @@ def sqrt_heron(n, tolerantie = 0.00000001):
         float: De benaderde vierkantswortel
 
     """
-    return 0
+    resultaat = n
+    while (resultaat**2 - n) > tolerantie:
+        resultaat = (resultaat + n / resultaat) / 2
+    return resultaat
 
 
 """
