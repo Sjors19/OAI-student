@@ -23,6 +23,7 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
 import sys
 import inspect
 
+from search_student import linear_search
 
 # TODO: Vul hier je naam, klas en studentnummer in.
 naam = "Sjors Jansen"
@@ -96,8 +97,8 @@ def my_sort(lst):
             Hoeveel vergelijkingen (zoals beschreven in stap 1. van de
             pseudocode) zijn nodig geweest?
 """
-#           TODO:  [1, 2, 3] is de best case scenario.
-#                  hiervoor zijn twee vergelijkingen nodig.
+#               [1, 2, 3] is de best case scenario.
+#               hiervoor zijn twee vergelijkingen nodig.
 """
 
 """
@@ -108,7 +109,7 @@ def my_sort(lst):
             sorteeralgoritme het minst snel klaar (worst-case scenario)?
             Hoeveel vergelijkingen zijn nodig geweest?
 """
-#           TODO: worst case scenario is [3,2,1]
+#                 worst case scenario is [3,2,1]
 #                 vergelijkingen = (N * (N-1))/2
 #                 vergelijkingen = (3 * 2) / 2 = 3
 #                 er zijn 3 vergelijkingen nodig.
@@ -121,7 +122,7 @@ def my_sort(lst):
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
 """
-#           TODO:     worst case scenario is [4,3,2,1]
+#                     worst case scenario is [4,3,2,1]
 #                     vergelijkingen = (N * (N-1))/2
 #                     vergelijkingen = (4 * 3) / 2 = 6
 #                     er zijn 6 vergelijkingen nodig.
@@ -134,7 +135,7 @@ def my_sort(lst):
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
 """
-#           TODO:  best case scenario is als de nummers van klein naar groot staan.
+#                  best case scenario is als de nummers van klein naar groot staan.
 #                  Het aantal vergelijkingen is dan: n-1
 #                  worst case scenario is als de nummers van groot naar klein staan.
 #                  het aantal vergelijkingen is dan: (n * (n-1)) / 2
@@ -156,6 +157,14 @@ def linear_search_recursive(lst, target):
     Returns:
         bool: Of het element in de lijst voorkomt.
     """
+    if not lst:
+        return False
+
+    if lst[0] == target:
+        return True
+
+    return linear_search_recursive(lst[1:], target)
+
     return False
 
 """
