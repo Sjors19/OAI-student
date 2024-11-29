@@ -25,9 +25,9 @@ import inspect
 
 
 # TODO: Vul hier je naam, klas en studentnummer in.
-naam = ""
-klas = ""
-studentnummer = -1
+naam = "Sjors Jansen"
+klas = "V1J"
+studentnummer = 1880483
 
 """
 1.  Sorteeralgoritme
@@ -43,7 +43,13 @@ studentnummer = -1
         lijst aanneemt bij álle tussenstappen bij toepassing van
         bovenstaand sorteeralgoritme.
 """
-#       TODO: [geef hier je antwoord]
+#       TODO: 0 [4, 3, 1, 2]
+#             1 [3, 4, 1, 2]
+#             2 [3, 1, 4, 2]
+#             3 [1, 3, 4, 2]
+#             4 [1, 3, 2, 4]
+#             5 [1, 2, 3, 4]
+
 """
 
     1b. Implementatie
@@ -69,7 +75,17 @@ def my_sort(lst):
     Returns:
         list: Een nieuwe, gesorteerde variant van lijst `lst`.
     """
-    lst_sorted = None
+    lst_sorted = lst[:]
+    l = len(lst_sorted)
+    while True:
+        swap = False
+        for e in range(l - 1):
+            if lst_sorted[e] > lst_sorted[e + 1]:
+                lst_sorted[e], lst_sorted[e + 1] = lst_sorted[e + 1], lst_sorted[e]
+                swap = True
+        if swap == False:
+            break
+
     return lst_sorted
 
 """
@@ -80,7 +96,11 @@ def my_sort(lst):
             Hoeveel vergelijkingen (zoals beschreven in stap 1. van de
             pseudocode) zijn nodig geweest?
 """
-#           TODO: [geef hier je antwoord]
+#           TODO:  [1, 2, 3] is de best case scenario.
+#                  hiervoor zijn twee vergelijkingen nodig.
+"""
+
+"""
 """
 
 
@@ -88,7 +108,10 @@ def my_sort(lst):
             sorteeralgoritme het minst snel klaar (worst-case scenario)?
             Hoeveel vergelijkingen zijn nodig geweest?
 """
-#           TODO: [geef hier je antwoord]
+#           TODO: worst case scenario is [3,2,1]
+#                 vergelijkingen = (N * (N-1))/2
+#                 vergelijkingen = (3 * 2) / 2 = 3
+#                 er zijn 3 vergelijkingen nodig.
 """
 
 
@@ -98,10 +121,11 @@ def my_sort(lst):
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
 """
-#           TODO: [geef hier je antwoord]
+#           TODO:     worst case scenario is [4,3,2,1]
+#                     vergelijkingen = (N * (N-1))/2
+#                     vergelijkingen = (4 * 3) / 2 = 6
+#                     er zijn 6 vergelijkingen nodig.
 """
-
-
         -   (Optioneel) Stel je hebt een lijst met de waarden 1 tot en met n
             (je weet nu dus niet precies hoeveel waarden er in de lijst
             zitten, het zijn er 'n').
@@ -110,9 +134,10 @@ def my_sort(lst):
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
 """
-#           TODO: [geef hier je antwoord]
-"""
-"""
+#           TODO:  best case scenario is als de nummers van klein naar groot staan.
+#                  Het aantal vergelijkingen is dan: n-1
+#                  worst case scenario is als de nummers van groot naar klein staan.
+#                  het aantal vergelijkingen is dan: (n * (n-1)) / 2
 
 """
 2. Linear search recursive

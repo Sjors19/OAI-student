@@ -13,17 +13,24 @@ Tijmen Muller (tijmen.muller@hu.nl)
 Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
+from operator import index
 
 
 def swap(lst, index1, index2):
     """ Verwissel de waardes op positie index1 (int) en index2 (int) in lijst lst. """
-    lst[index1] = lst[index2]
+    lst[index1], lst[index2] = lst[index2], lst[index1]
+
+
 
 
 def find_index_of_minimum(lst, start_index=0):
     """ Vind de locatie van het minimum in lijst lst vanaf een gegeven start_index (int). """
     minimum = lst[start_index]
     index_of_minimum = start_index
+    for i in range(start_index, len(lst)-1):
+        if lst[i] < minimum:
+            minimum = lst[i]
+            index_of_minimum = i
 
     # Doorloop de lijst lst vanaf start_index en
     # update minimum en index_of_minimum waar nodig.
@@ -47,7 +54,11 @@ def selection_sort(lst):
     lst_sorted = lst.copy()
 
     # Implementeer selection sort met behulp van swap() en find_index_of_minimum()
-
+    minindex = 0
+    for i in range(len(lst)-1):
+        if lst_sorted[i] < lst_sorted[minindex]:
+            swap(lst_sorted, i, minindex)
+            minindex = i
     # Retourneer een gesorteerde variant van de lijst
     return lst_sorted
 

@@ -66,7 +66,7 @@ def binary_search(lst, target):
     # Stap 1.
     mini = 0
     maxi = len(lst) -1
-    index = mini + maxi //2
+    index = (mini + maxi) //2
     e = lst[index]
     # Stap 6. (!)
     while mini <= maxi:    # hoelang ga je door met zoeken?

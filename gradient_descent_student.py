@@ -28,8 +28,16 @@ def gradient_descent(x, y, num_iterations=1000, learning_rate=0.0001):
     Returns:
         [float, float]: de berekende coefficienten
     """
-    coefficients = [0, 0]
-    
+    coefficients = []
+    a = 0
+    b = 0
+    for i in range(num_iterations):
+        for i in range(len(x)):
+            error = (a + b * x[i]) - y[i]
+            a = a - error * learning_rate
+            b = b - x[i] * error * learning_rate
+    coefficients.append(a)
+    coefficients.append(b)
     return coefficients
 
 

@@ -18,7 +18,8 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
 def faculteit_iteratief(n):
     """ Bereken n! op iteratieve wijze. """
     res = 1
-
+    for i in range(1, n+1):
+        res *= i
     # Voeg de iteratie in: for ...
 
     return res
@@ -31,16 +32,19 @@ def faculteit(n):
         return 1
     # Recursie
     else:
-        return faculteit(0)
+        return n * faculteit(n - 1)
 
 
 def exponent(n):
     """ Bereken 2^n op recursieve wijze. """
     # Base case
-
-    # Recursie
-    return n
-
+    if n == 0:
+        return 1
+# Recursie
+    if n > 0:
+        return 2 * exponent(n - 1)
+    else:
+        return 2 * exponent(n + 1)
 
 def som(lst):
     """ Bereken de som van alle elementen van gegeven lijst `lst` op recursieve wijze. """
